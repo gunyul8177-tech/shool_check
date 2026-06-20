@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>학교 일정 알리미</title>
+    <style>
+        table, th, td {border:1px solid #ccc; border-collapse: collapse;}
+        th, td {padding:10px 20px;}
+    </style>
+    <style>
+    table, th, td {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px 20px;
+    }
+
+    .table-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    .eat {
+        width: 500px;
+    }
+
+    .eat td {
+        height: 100px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<h1>학교 알리미</h1>
+<label for="">학교 선택</label>
+<select id="school">
+    <option value="옥정" selected>옥정중학교</option>
+    <option value="금릉">금릉중학교</option>
+</select>
+
+<div class="table-container">
+    <table class="schedule">
+        <tr>
+            <td></td>
+            <td>월요일</td>
+            <td>화요일</td>
+            <td>수요일</td>
+            <td>목요일</td>
+            <td>금요일</td>
+        </tr>
+         <tr>
+            <td>1교시</td>
+            <td id="mon1"></td>
+            <td id="tue1"></td>
+            <td id="wed1"></td>
+            <td id="thu1"></td>
+            <td id="fri1"></td>
+        </tr>
+         <tr>
+            <td>2교시</td>
+            <td id="mon2"></td>
+            <td id="tue2"></td>
+            <td id="wed2"></td>
+            <td id="thu2"></td>
+            <td id="fri2"></td>
+        </tr>
+         <tr>
+            <td>3교시</td>
+            <td id="mon3"></td>
+            <td id="tue3"></td>
+            <td id="wed3"></td>
+            <td id="thu3"></td>
+            <td id="fri3"></td>
+        </tr>
+         <tr>
+            <td>4교시</td>
+            <td id="mon4"></td>
+            <td id="tue4"></td>
+            <td id="wed4"></td>
+            <td id="thu4"></td>
+            <td id="fri4"></td>
+        </tr>
+         <tr>
+            <td>5교시</td>
+            <td id="mon5"></td>
+            <td id="tue5"></td>
+            <td id="wed5"></td>
+            <td id="thu5"></td>
+            <td id="fri5"></td>
+        </tr>
+         <tr>
+            <td>6교시</td>
+            <td id="mon6"></td>
+            <td id="tue6"></td>
+            <td id="wed6"></td>
+            <td id="thu6"></td>
+            <td id="fri6"></td>
+        </tr>
+         <tr>
+            <td>7교시</td>
+            <td id="mon7"></td>
+            <td id="tue7"></td>
+            <td id="wed7"></td>
+            <td id="thu7"></td>
+            <td id="fri7"></td>
+        </tr>
+    </table>
+    <table class="eat">
+        <tr>
+            <td>날짜</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>급식</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    </div>
+        <script>
+    const timetable = {
+        옥정: {mon: ["스포츠", "체육", "수학", "주제3", "영어", "정보"],
+            tue: ["주제1", "주제1", "국어", "도덕", "한문", "음악", "수학"],
+            wed: ["체육", "음악", "사회", "영어", "과학",],
+            thu: ["수학", "국어", "주제2", "주제2", "진로", "사회", "과학"],
+            fri: ["도덕", "국어", "체육", "한문", "정보", "영어",],
+        },
+        금릉: {mon: ["국어2", "미술", "스클", "도덕", "기가", "수학"],
+            tue: ["국어1", "주제", "주제", "영어", "과학", "체육", "정보"],
+            wed: ["체육", "진탐", "정보", "도덕", "수학", "국어1"],
+            thu: ["미술", "주제", "주제", "체육", "사회", "영어", "과학"],
+            fri: ["사회", "국어2", "수학", "진독", "기가", "창체",],
+        }
+
+
+    }
+
+    document.getElementById("school").addEventListener("change", function () {
+
+    const school = this.value;
+
+    if (!timetable[school]) return;
+
+    document.getElementById("mon1").textContent = timetable[school].mon[0];
+    document.getElementById("mon2").textContent = timetable[school].mon[1];
+    document.getElementById("mon3").textContent = timetable[school].mon[2];
+    document.getElementById("mon4").textContent = timetable[school].mon[3];
+    document.getElementById("mon5").textContent = timetable[school].mon[4];
+    document.getElementById("mon6").textContent = timetable[school].mon[5];
+    document.getElementById("mon7").textContent = timetable[school].mon[6];
+
+    document.getElementById("tue1").textContent = timetable[school].tue[0];
+    document.getElementById("tue2").textContent = timetable[school].tue[1];
+    document.getElementById("tue3").textContent = timetable[school].tue[2];
+    document.getElementById("tue4").textContent = timetable[school].tue[3];
+    document.getElementById("tue5").textContent = timetable[school].tue[4];
+    document.getElementById("tue6").textContent = timetable[school].tue[5];
+    document.getElementById("tue7").textContent = timetable[school].tue[6];
+
+    document.getElementById("wed1").textContent = timetable[school].wed[0];
+    document.getElementById("wed2").textContent = timetable[school].wed[1];
+    document.getElementById("wed3").textContent = timetable[school].wed[2];
+    document.getElementById("wed4").textContent = timetable[school].wed[3];
+    document.getElementById("wed5").textContent = timetable[school].wed[4];
+    document.getElementById("wed6").textContent = timetable[school].wed[5];
+    document.getElementById("wed7").textContent = timetable[school].wed[6];
+
+    document.getElementById("thu1").textContent = timetable[school].thu[0];
+    document.getElementById("thu2").textContent = timetable[school].thu[1];
+    document.getElementById("thu3").textContent = timetable[school].thu[2];
+    document.getElementById("thu4").textContent = timetable[school].thu[3];
+    document.getElementById("thu5").textContent = timetable[school].thu[4];
+    document.getElementById("thu6").textContent = timetable[school].thu[5];
+    document.getElementById("thu7").textContent = timetable[school].thu[6];
+
+    document.getElementById("fri1").textContent = timetable[school].fri[0];
+    document.getElementById("fri2").textContent = timetable[school].fri[1];
+    document.getElementById("fri3").textContent = timetable[school].fri[2];
+    document.getElementById("fri4").textContent = timetable[school].fri[3];
+    document.getElementById("fri5").textContent = timetable[school].fri[4];
+    document.getElementById("fri6").textContent = timetable[school].fri[5];
+    document.getElementById("fri7").textContent = timetable[school].fri[6];
+    });
+    document.getElementById("school").dispatchEvent(new Event("change"));
+</script>
+</body>
+</html>
