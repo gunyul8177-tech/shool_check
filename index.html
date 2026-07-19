@@ -3,13 +3,12 @@
 <head>
     <title>학교 일정 알리미</title>
     <style>
-        table, th, td {border:1px solid #ccc; border-collapse: collapse;}
+        table, th, td {border: 5px solid #0c0c0c; border-collapse: collapse; }
         th, td {padding:10px 20px;}
-    </style>
-    <style>
     table, th, td {
-        border: 1px solid #ccc;
+        border: 1px solid #0c0c0c;
         border-collapse: collapse;
+        background-color: rgb(255,255,255)
     }
 
     th, td {
@@ -20,6 +19,8 @@
         display: flex;
         align-items: flex-start;
         gap: 50px;
+        margin-left: 100px;
+        margin-top: 30px;
     }
 
     .eat {
@@ -27,19 +28,50 @@
     }
 
     .eat td {
-        height: 100px;
+        height: 150px;
     }
+
+.eat tr:first-child td {
+    height: 30px;
+}
+
+.eat tr:last-child td {
+    height: 270px;
+}
+
+.eat td:first-child {
+    width: 30px;
+}
+
+.head {background-color: rgb(140, 220, 235)}
+
+.main {text-align: center}
+    
+body {background-color: #ece9e9}
+
+
+.menu {text-align: center; margin-top:30px}
+
+.all {margin: auto; text-align:center;}
+
+th {background-color: rgb(140, 220, 235)}
+
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
-<h1>학교 알리미</h1>
+<h1 class="main">학교 알리미</h1>
+
+<div class="all">
+<div class="menu">
 <label for="">학교 선택</label>
+
 <select id="school">
     <option value="옥정" selected>옥정중학교</option>
     <option value="금릉">금릉중학교</option>
+    <option value="향산">향산중학교</option>
 </select>
 
 <label for="">학년 선택</label>
@@ -52,16 +84,17 @@
     <label for="">반 선택</label>
     <select id="class">
     </select>
+    </div>
 
 <div class="table-container">
     <table class="schedule">
-        <tr>
-            <td></td>
-            <td>월요일</td>
-            <td>화요일</td>
-            <td>수요일</td>
-            <td>목요일</td>
-            <td>금요일</td>
+        <tr class="head">
+            <th></th>
+            <th>월요일</th>
+            <th>화요일</th>
+            <th>수요일</th>
+            <th>목요일</th>
+            <th>금요일</th>
         </tr>
          <tr>
             <td>1교시</td>
@@ -138,6 +171,7 @@
             <td></td>
         </tr>
     </table>
+    </div>
     </div>
         <script>
     const timetable = {
@@ -233,9 +267,20 @@ else if (school.value == "금릉") {
     classCount = 9
 
     }else if (grade.value == "3") {
-        classCount = 9
+        classCount =9
     }
+}
 
+else if (school.value == "향산") {
+    classSelect.innerHTML = "";
+    if (grade.value == "1") {
+        classCount = 7;
+
+    }else if (grade.value == "2") {
+        classCount = 5
+    }else if (grade.value == "3") {
+        classCount = 4
+    }
 }
 
     for(let i = 1; i <= classCount; i++) {
