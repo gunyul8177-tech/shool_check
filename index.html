@@ -19,7 +19,6 @@
         display: flex;
         align-items: flex-start;
         gap: 50px;
-        margin-left: 100px;
         margin-top: 30px;
     }
 
@@ -56,6 +55,28 @@ body {background-color: #ece9e9}
 
 th {background-color: rgb(140, 220, 235)}
 
+@media (max-width: 768px) {
+
+    .table-container {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .eat {
+        width: 100%;
+        min-width: 500px;
+    }
+
+    .schedule {
+        width: 100%;
+        min-width: 700px;
+    }
+
+    .table-scroll {
+        overflow-x: auto;
+    }
+}
+
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -87,6 +108,7 @@ th {background-color: rgb(140, 220, 235)}
     </div>
 
 <div class="table-container">
+<div class="table-scroll">
     <table class="schedule">
         <tr class="head">
             <th></th>
@@ -153,6 +175,8 @@ th {background-color: rgb(140, 220, 235)}
             <td id="fri7"></td>
         </tr>
     </table>
+    </div>
+    <div class="table-scroll">
     <table class="eat">
         <tr>
             <td>날짜</td>
@@ -171,6 +195,7 @@ th {background-color: rgb(140, 220, 235)}
             <td></td>
         </tr>
     </table>
+    </div>
     </div>
     </div>
         <script>
